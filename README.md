@@ -1,7 +1,7 @@
 # Pfizer BAI Heart Disease Case Study
 
-> This repository contains all the files created and work completed for the
-> heart disease case study completed for the Pfizer data science role interview.
+This repository contains all the files created and work completed for the
+heart disease case study completed for the Pfizer data science role interview.
 
 > **Note**
 > The code used for the analysis is in the `main.py` file and the static
@@ -131,7 +131,7 @@ linear classification model with dimensionality reduction is an obvious option.
 
 ### Step 3: Background Research
 
-#### Heart Disease
+#### Heart Disease Classification
 
 I did some cursory research on heart disease and found the following paper that
 uses the variables available in the patient data to classify heart disease
@@ -139,6 +139,11 @@ uses the variables available in the patient data to classify heart disease
 * [Heart disA Hybrid Classification System for Heart Disease Diagnosis Based on the RFRS Method](https://www.hindawi.com/journals/cmmm/2017/8272091/)
 
 #### Dimensionality Reduction
+
+Additionally, I did some research on dimensionality reduction and found this
+paper that goes into some of the differences between PCA and RFE-RF and finds
+RFE to be a better option for the classification task of binary prediction of
+bankruptcy.
 
 * [Comparison of PCA and RFE-RF Algorithm in Bankruptcy Prediction](https://dergipark.org.tr/en/download/article-file/2272320#:~:text=The%20most%20important%20difference%20was,features%20into%20a%20lower%20dimension)
 
