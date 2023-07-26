@@ -1,0 +1,6 @@
+gitpython
+ipython
+pandas
+plotly
+scikit-learn
+ydata-profiling
