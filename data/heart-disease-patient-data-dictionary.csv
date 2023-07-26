@@ -3,7 +3,7 @@ age,age,age in years
 sex,male_binary,(1 = male; 0 = female)
 cp,chest_pain_type,chest pain type
 trestbps,rest_blood_pressure,resting blood pressure (in mm Hg on admission to the hospital)
-chol,serum_cholestoral,serum cholestoral in mg/dl
+chol,serum_cholesterol,serum cholesterol in mg/dl
 fbs,fast_bg_above120_binary,(fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)
 restecg,rest_ecg_results,resting electrocardiographic results
 thalach,max_heart_rate,maximum heart rate achieved

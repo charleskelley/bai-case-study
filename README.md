@@ -15,7 +15,7 @@ heart disease case study completed for the Pfizer data science role interview.
 diagrams/visualizations or however else you feel would be the most appropriate
 way to express your answers. Please e-mail this to us.***
 
-## Case Study
+### Case Study
 
 We are interested in understanding what are the main contributing factors
 toward heart disease?
@@ -105,31 +105,40 @@ be easily viewed by opening the file in a web browser.
 
 ### Step 2: Problem Framing 
 
-#### Objective 
+#### Objectives
 
-Given the data provided, the objective is to identify the main contributing
-factors that lead to a heart disease diagnosis.
+**Model Task - Binary Classification**
 
-To assess the relative contribution of multiple factors, a simple linear
-classification model can be built where the target variable is
-`heart_disease_binary` variable and all other variables are assessed as
-predictors.
-
-The assumption that their parametric contributions to the target variable are
-additive and can be used as a proxy for their contribution to the heart disease
+Identify the contributing factors that are associated with a heart disease
 diagnosis.
+
+**Model Selection - Classifier w/Variable Importance**
+
+A binary classification model where the target is the `heart_disease_binary`
+variable and all other dataset variables can be assessed as for their importance
+in predicting whether a patient diagnosed with heart disease—most decision trees
+and regression based models support variable importance.
+
+**Model Interpretation - Variable Importance**
+
+The key assumption to this analysis is that a variable’s contributions to
+classification model are separable and can be used to relatively rank their
+contribution to the heart disease diagnosis classification
 
 #### Key Considerations
 
-There are many different binary classification models that could be used to try
-and get the best performing model on strictly the classification task. However,
-the request was for contribution analysis. Therefore, the model should be
-selected with explainability as a major consideration.
+**Model Explainability**
 
-With the the 24-48 time constraint and explainability as chief criteria. A
-linear classification model with dimensionality reduction is an obvious option.
+Can we identify the variables that most associated with a heart disease
+diagnosis?
 
-### Step 3: Background Research
+**Time Constraint**
+
+The hard cap of 24-48 hours to complete this analysis limits the number of
+solution options that can be investigated, and limits the options to more
+traditional solutions that are simple to implement in practice.
+
+### Step 3: Contextual Research
 
 #### Heart Disease Classification
 
@@ -146,4 +155,24 @@ RFE to be a better option for the classification task of binary prediction of
 bankruptcy.
 
 * [Comparison of PCA and RFE-RF Algorithm in Bankruptcy Prediction](https://dergipark.org.tr/en/download/article-file/2272320#:~:text=The%20most%20important%20difference%20was,features%20into%20a%20lower%20dimension)
+
+### Step 4: Solution Development
+
+#### Recursive Feature Elimination
+
+Recursive feature engineering (RFE) is a method used in machine learning where a
+model is trained on a dataset, the importance of each feature is determined, and
+the least important features are progressively eliminated in subsequent
+iterations of model training.
+
+**RFE as A Wrapper Algorithm**
+
+Different machine learning algorithms can be used in the core of the method and
+wrapped by the RFE algorithm and used to help select features.
+
+This supports both the evaluation of classification models and feature
+importance simultaneously—perfect for our task of building a heart disease
+classifier to understand variable contribution.
+
+### Step 5: Solution Delivery
 

@@ -1,0 +1,9 @@
+feature,coefficient
+exercise_st_depression,-0.7166313475055256
+male_binary,-1.1629760827758748
+chest_pain_type,0.8423089179616289
+execise_angina_binary,-1.042795406335827
+exercise_st_slope,0.6697763445028464
+major_vessels_colored,-0.7782792871712767
+thalassemia,-0.8149111532352173
+intercept,1.9831379589101443

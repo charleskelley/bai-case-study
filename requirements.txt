@@ -1,3 +1,4 @@
+dtreeviz
 gitpython
 ipython
 pandas
