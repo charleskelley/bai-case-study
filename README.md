@@ -222,7 +222,7 @@ be lest translatable.
 
 **Full Model Pipeline**  
 
-![Full Model Pipeline](./resources/full-model-pipleline.svg)
+![Full Model Pipeline](resources/full-model-pipleline.png)
 
 
 ## Step 5: Solution Delivery
