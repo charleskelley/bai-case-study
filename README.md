@@ -1,7 +1,8 @@
 # Pfizer BAI Heart Disease Case Study
 
 This repository contains all the files created and work completed for the
-heart disease case study completed for the Pfizer data science role interview.
+heart disease case study in preparation for an interview for a Pfizer data
+science role .
 
 > **Note**
 > The code used for the analysis is in the `main.py` file and the static
@@ -83,16 +84,14 @@ an alias that is more human-readable and descriptive.
 > section below for more information on a paper that uses the same variables to
 > classify heart disease.
 
-## Heart Disease Contributing Factors analysis
-
-### Step 1: Exploratory Data Analysis
+## Step 1: Exploratory Data Analysis
 
 To see what the data looks like, I ran a Pandas Profiling report on the heart
 disease patient data. The HTML full data profile report is saved to
 [`/output/patient-data-profile.html`](output/patient-data-profile.html) and can
 be easily viewed by opening the file in a web browser.
 
-#### Notable Variable Characteristics
+## Notable Variable Characteristics
 
 * `male_binary` - has a high imbalance toward male sex with 207 observations
   indicated as male and 96 as not-male (female)
@@ -103,9 +102,9 @@ be easily viewed by opening the file in a web browser.
   distribution with and any moderate positive or negative skewness is due to
   one or a few outlier observations
 
-### Step 2: Problem Framing 
+## Step 2: Problem Framing 
 
-#### Objectives
+### Objectives
 
 **Model Task - Binary Classification**
 
@@ -138,27 +137,56 @@ The hard cap of 24-48 hours to complete this analysis limits the number of
 solution options that can be investigated, and limits the options to more
 traditional solutions that are simple to implement in practice.
 
-### Step 3: Contextual Research
+## Step 3: Contextual Research
 
-#### Heart Disease Classification
+### Heart Disease
 
-I did some cursory research on heart disease and found the following paper that
-uses the variables available in the patient data to classify heart disease
+Developing a heart disease binary classification model necessitates
+understanding the medical domain, including heart disease:
+
+* Risk factors
+* Symptoms
+* Diagnostic criteria
+* Clinical data structures
+
+This would involve gathering data from sources like electronic health records,
+lifestyle and genetics data, and medical literature, and collaborating with
+healthcare professionals for their expert insights.
+
+**Notable literature**
+
+The following paper discusses the creation of a classification system for heart
+disease diagnosis and uses variables very similar to our heart disease patient
+dataset
 
 * [Heart disA Hybrid Classification System for Heart Disease Diagnosis Based on the RFRS Method](https://www.hindawi.com/journals/cmmm/2017/8272091/)
 
-#### Dimensionality Reduction
+### Classification Methods
 
-Additionally, I did some research on dimensionality reduction and found this
-paper that goes into some of the differences between PCA and RFE-RF and finds
-RFE to be a better option for the classification task of binary prediction of
-bankruptcy.
+In addition to understanding the heart disease domain, a good heart disease
+predictive model requires a deep understanding of classification models
+including:
+
+* Model assumptions
+* Performance metrics
+* Model variety - such as logistic regression, decision trees, or support
+  vector machines
+
+It would also be best to know which model types have been most successful in
+similar problem domains or contexts, along with an understanding of the ethical
+considerations in health-related predictions.
+
+**Notable Literature**
+
+The following paper is helpful in deciding what types of classification
+modeling methods to use—dimensionality reduction for classification in this
+case.
 
 * [Comparison of PCA and RFE-RF Algorithm in Bankruptcy Prediction](https://dergipark.org.tr/en/download/article-file/2272320#:~:text=The%20most%20important%20difference%20was,features%20into%20a%20lower%20dimension)
 
-### Step 4: Solution Development
+## Step 4: Solution Development
 
-#### Recursive Feature Elimination
+### Recursive Feature Elimination
 
 Recursive feature engineering (RFE) is a method used in machine learning where a
 model is trained on a dataset, the importance of each feature is determined, and
@@ -174,5 +202,31 @@ This supports both the evaluation of classification models and feature
 importance simultaneously—perfect for our task of building a heart disease
 classifier to understand variable contribution.
 
-### Step 5: Solution Delivery
+**RFE Algorithms Assessed For Feature Selection**
+
+* Logistic Regression (logistic)
+* Perceptron
+* Classification and Regression Tree (cart)
+* Random Forest (forest)
+* Gradient Boost Machine (gbm)
+
+### Binary Classifier Selection
+
+Decision tree and logistic regression classifiers are good candidates for a
+final binary classification model due to their simplicity and explainability
+
+The better model based on the performance and explainability requirements
+should be used.  Generally speaking decision trees are explainable more
+straightforward to explain, but they often favor variance over bias and could
+be lest translatable.
+
+**Full Model Pipeline**  
+
+![Full Model Pipeline](./resources/full-model-pipleline.svg)
+
+
+## Step 5: Solution Delivery
+
+
+
 
