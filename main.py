@@ -167,25 +167,6 @@ class PatientDataPrepped:
         self.target_name = self.TARGET_FEATURE
 
 
-# Named tuple to hold the data after it has been prepped for modeling
-# PreppedData = NamedTuple(
-#     "PreppedData",
-#     [
-#         ("features", ArrayLike),
-#         ("target", ArrayLike),
-#         ("feature_names", list[str]),
-#         ("target_name", str),
-#     ],
-# )
-# # Data prepped and ready for modeling
-# prepped_data = PreppedData(
-#     transformed_data,
-#     target_raw,
-#     list(column_transformer.get_feature_names_out()),
-#     "heart_disease_binary",
-# )
-
-
 # Recursive Feature Elimination (RFE) and binary classification model
 
 
@@ -365,7 +346,9 @@ pipelines_accuracy_tree = pipeline_accuracy(prepped_data, pipelines_tree)
 #     paths.output.joinpath("pipelines-accuracy-tree.csv"), index=False
 # )
 
-pipelines_features_tree = candidate_pipelines_features_selected(prepped_data, pipelines_tree)
+pipelines_features_tree = candidate_pipelines_features_selected(
+    prepped_data, pipelines_tree
+)
 # pipelines_features_tree.to_csv(paths.output.joinpath("pipelines-features-tree.csv"), index=False)
 
 
@@ -376,7 +359,9 @@ pipelines_accuracy_logistic = pipeline_accuracy(prepped_data, pipelines_logistic
 #     paths.output.joinpath("pipelines-accuracy-logistic.csv"), index=False
 # )
 
-pipelines_features_logistic = candidate_pipelines_features_selected(prepped_data, pipelines_logistic)
+pipelines_features_logistic = candidate_pipelines_features_selected(
+    prepped_data, pipelines_logistic
+)
 # pipelines_features_logistic.to_csv(paths.output.joinpath("pipelines-features-logistic.csv"), index=False)
 
 
@@ -400,10 +385,14 @@ post_rfe_feature_names = _clean_feature_names(
 )
 
 # Final logistic classifier coefficients
-final_logistic_coefficients = list(zip(post_rfe_feature_names, logistic_classifier_coefficients))
+final_logistic_coefficients = list(
+    zip(post_rfe_feature_names, logistic_classifier_coefficients)
+)
 final_logistic_coefficients.append(("intercept", logistic_classifier_intercept))
 
-final_logistic_model = DataFrame(data=final_logistic_coefficients, columns=["feature", "coefficient"])
+final_logistic_model = DataFrame(
+    data=final_logistic_coefficients, columns=["feature", "coefficient"]
+)
 # final_logistic_model.to_csv(paths.output.joinpath("final-logistic-model.csv"), index=False)
 
 
