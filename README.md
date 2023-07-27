@@ -68,7 +68,7 @@ an alias that is more human-readable and descriptive.
 | `sex`         | `male_binary`             | (1 = male; 0 = female)                                         |
 | `cp`          | `chest pain type`         | chest pain type                                                |
 | `trestbps`    | `rest_blood_pressure`     | resting blood pressure (in mm Hg on admission to the hospital) |
-| `chol`        | `serum_cholestoral`       | serum cholestoral in mg/dl                                     |
+| `chol`        | `serum_cholesterol`       | serum cholesterol in mg/dl                                     |
 | `fbs`         | `fast_bg_above120_binary` | (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)        |
 | `restecg`     | `rest_ecg_results`        | resting electrocardiographic results                           |
 | `thalach`     | `max_heart_rate`          | maximum heart rate achieved                                    |
@@ -186,6 +186,9 @@ case.
 
 ## Step 4: Solution Development
 
+> **Note:**
+> All solution development code is in the [`/main.py`](main.py) file
+
 ### Recursive Feature Elimination
 
 Recursive feature engineering (RFE) is a method used in machine learning where a
@@ -222,11 +225,60 @@ be lest translatable.
 
 **Full Model Pipeline**  
 
-![Full Model Pipeline](resources/full-model-pipleline.png)
+![](resources/full-model-pipeline.png)
 
+### Model Pipeline Feature Assessment
 
-## Step 5: Solution Delivery
+![](resources/model-pipeline-feature-assessment.png)
 
+**RFE Feature Selection**
+
+Fewer features usually leads to better explainability if accuracy doesn’t
+suffer.  In this case, using a logistic regression model as the core model of
+the RFE algorithm leads to the fewest features in the final model pipeline.
+
+**Note On Model Tuning**
+
+The default versions of all of these models were used. There may be
+considerable room for improvement via iteration and hyperparameter tuning.
+
+## Step 5: Solution Selection & Delivery
+
+### Full Model Pipeline For Heart Disease Classifier
+
+![](resources/pipeline-accuracy.png)
+
+**Pipeline Selection**
+
+Starting from a baseline of the logistic regression as the core for RFE since
+it uses the least features, we see that the logistic regression final
+classifier also performs better than the decision tree.
+
+Additionally, changing the RFE core model to anything besides logistic
+regression does not provide a large lift in model accuracy.  As such, logistic
+regression based RFE and final classification is the preferred pipeline
+
+> **Note:**
+> Model pipeline accuracy was assessed using 5 fold cross-validation with the
+> accuracy mean and standard deviation derived from the combined series of
+> scores.
+
+**Selected Full Model Pipeline**
+
+![](resources/selected-full-model-pipeline.png)
+
+**Final Logistic Classifier Model**
+
+| VARIABLE               | COEFF       |
+| ---------------------- | -----------: |
+| exercise_st_depression | \-0.7166    |
+| male_binary            | \-1.1630    |
+| chest_pain_type        | 0.8423      |
+| execise_angina_binary  | \-1.0428   |
+| exercise_st_slope      | 0.6698      |
+| major_vessels_colored  | \-0.7783    |
+| thalassemia            | \-0.8149    |
+| intercept              | 1.9831      |
 
 
 
