@@ -4,10 +4,10 @@ This repository contains all the files created and work completed for the
 heart disease case study in preparation for an interview for a Pfizer data
 science role .
 
-> **Note**
-> The code used for the analysis is in the `main.py` file and the static
-> artifacts produced by the analysis code are in the `output` directory, and
-> the `resources` directory contains any static artifacts used for analysis
+> **Note:**
+> The code used for the analysis is in the [`/main.py`](main.py) file and the
+> static artifacts produced by the analysis code are in the `output` directory,
+> and the `resources` directory contains any static artifacts used for analysis
 > presentation.
 
 ## Instructions From Pfizer
